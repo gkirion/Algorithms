@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+#define V 5
+
+bool hamiltonian(bool adj[][V], int path[], bool visited[], int pos, int v) {
+	if (pos == V - 1) {
+		if (adj[ path[pos] ] [ path[0] ])
+			return true;
+		else
+			return false;
+	}
+	path[pos] = v;
+	visited[v] = true;
+	for (int i = 1; i < V; i++) {
+		if (adj[pos][i] && !visited[i]) {
+			if (hamiltonian(adj,path,visited,pos + 1, i)
+				return true;
+		}
+	}
+	path[pos] = -1;
+	visited[v] = false;
+	return false;
+}
+
+int main(void) {
+	bool adj[V][V] = {{0, 1, 0, 1, 0},
+                      {1, 0, 1, 1, 1},
+                      {0, 1, 0, 0, 1},
+                      {1, 1, 0, 0, 1},
+                      {0, 1, 1, 1, 0},
+                     };
+    bool visited[V] = {false,false,false,false,false};
+	int path[V];
+	if (hamiltonian(adj,path,visited,0,0))
+		printf("hamiltonian cycle exists!\n");
+	else 
+		printf("hamiltonian cycle doesn't exists!\n");
+	re	
+}
