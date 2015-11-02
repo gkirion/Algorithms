@@ -26,18 +26,12 @@ void insert(int e) {
 }
 
 void combine (int i) {
-	int m, mp;
-	m = A[i];
-	mp = i;
-	//left = 2 * i + 1;
-	//right = 2 * i + 2;
-	if ((2 * i + 1) < size && A[2 * i + 1] > m) {
-		m = A[2 * i + 1];
-		mp = 2 * i + 1;
+	int mp = i, left = 2 * i + 1, right = 2 * i + 2;
+	if (left < size && A[left] > A[mp]) {
+		mp = left;
 	}
-	if ((2 * i + 2) < size && A[2 * i + 2] > m) {
-		m = A[2 * i + 2];
-		mp = 2 * i + 2;
+	if (right < size && A[right] > A[mp]) {
+		mp = right;
 	}
 	if (mp != i) {
 		swap(&A[i], &A[mp]);
