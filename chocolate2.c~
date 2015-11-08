@@ -104,7 +104,6 @@ int findTime(int *S, int *F, int N, long K) {
 }
 
 int main(void) {
-	int i;
 	result res;
 	res = parse();
 	quicksort(res.S,0,res.N - 1);

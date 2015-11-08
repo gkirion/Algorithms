@@ -33,10 +33,10 @@ result parse() {
 	return res;
 }
 
-void swap(int *A, int x, int y) {
-	int temp = A[x];
-	A[x] = A[y];
-	A[y] = temp;
+void swap(int *x, int *y) {
+	int temp = *x;
+	*x = *y;
+	*y = temp;
 }
 
 int partition(int *A, int left, int right) {
@@ -47,7 +47,7 @@ int partition(int *A, int left, int right) {
 	 	while (A[++i] < pivot);
 	 	while (A[--j] > pivot);
 	 	if (i < j) 
-	 		swap(A, i, j);
+	 		swap(&A[i], &A[j]);
 	 	else
 	 		return j;
 	}
